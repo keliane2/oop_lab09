@@ -27,12 +27,10 @@ public final class LaunchApp {
      * @throws IllegalArgumentException in case of reflection issues
      */
     public static void main(final String... args) {
-       // final var model = new DrawNumberImpl();
-        //final DrawNumberController app = new DrawNumberControllerImpl(model);
-        //app.addView(new DrawNumberSwingView());
-        //app.addView(new DrawNumberSwingView());
-        //app.addView(new DrawNumberOutputView());
-
-        System.out.println(DrawNumberView.class.getClasses());
+        final var model = new DrawNumberImpl();
+        final DrawNumberController app = new DrawNumberControllerImpl(model);
+        app.addView(new DrawNumberSwingView());
+        app.addView(new DrawNumberSwingView());
+        app.addView(new DrawNumberOutputView());
     }
 }
