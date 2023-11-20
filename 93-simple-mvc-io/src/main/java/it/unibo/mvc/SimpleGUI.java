@@ -19,9 +19,9 @@ public final class SimpleGUI {
     public SimpleGUI(){
         JPanel canvas=new JPanel();
         canvas.setLayout(new BorderLayout());
-        JTextArea textArea=new JTextArea("Write here");
+        JTextArea textArea=new JTextArea();
         canvas.add(textArea, BorderLayout.CENTER);
-        JButton save = new JButton("save");
+        JButton save = new JButton("Save");
         canvas.add(save, BorderLayout.PAGE_END);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(canvas);
