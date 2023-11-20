@@ -66,6 +66,10 @@ public class BadIOGUI {
                 }
             }
         });
+        JPanel myPanel= new JPanel();
+        myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.X_AXIS));
+        canvas.add(myPanel, BorderLayout.CENTER);
+        myPanel.add(write);
     }
 
     private void display() {
@@ -91,6 +95,9 @@ public class BadIOGUI {
          * OK, ready to push the frame onscreen
          */
         frame.setVisible(true);
+
+        //resize the frame to the minimum size prior to displaying
+        frame.pack();
     }
 
     /**
