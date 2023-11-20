@@ -66,10 +66,23 @@ public class BadIOGUI {
                 }
             }
         });
+        //Ex 01.01
         JPanel myPanel= new JPanel();
         myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.X_AXIS));
         canvas.add(myPanel, BorderLayout.CENTER);
         myPanel.add(write);
+        //Ex 01.02
+        JButton read = new JButton();
+        myPanel.add(read);
+        read.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("I'm the new button");
+            }
+
+
+        });
     }
 
     private void display() {
