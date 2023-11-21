@@ -10,8 +10,13 @@ import java.io.PrintStream;
 public class Controller {
     private static File currentFile=new File(System.getProperty("user.home")+File.separator+"output.txt");
 
-    public void setCurrentFile(File f){
-        this.currentFile=f;
+    public boolean setCurrentFile(File f){
+        if (f!=null) {
+            this.currentFile=f;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public File getCurrentFile(){
