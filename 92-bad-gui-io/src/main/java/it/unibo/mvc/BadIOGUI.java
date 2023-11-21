@@ -10,13 +10,18 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.List;
 import java.util.Random;
+import java.io.FileReader;
 
 /**
  * This class is a simple application that writes a random number on a file.
@@ -66,21 +71,46 @@ public class BadIOGUI {
                 }
             }
         });
-        //Ex 01.01
-        JPanel myPanel= new JPanel();
+        // Ex 01.01
+        JPanel myPanel = new JPanel();
         myPanel.setLayout(new BoxLayout(myPanel, BoxLayout.X_AXIS));
         canvas.add(myPanel, BorderLayout.CENTER);
         myPanel.add(write);
-        //Ex 01.02
+        // Ex 01.02
         JButton read = new JButton();
         myPanel.add(read);
-        read.addActionListener(new ActionListener(){
+        /*
+         * read.addActionListener(new ActionListener(){
+         * 
+         * @Override
+         * public void actionPerformed(ActionEvent e) {
+         * System.out.println("I'm the new button");
+         * }
+         * 
+         * 
+         * });
+         */
+        // Ex 01.03
+        read.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("I'm the new button");
+                String file=PATH.toString();
+                try {
+                    FileReader reader = new FileReader(file);
+                    int content;
+         
+                    while ((content = reader.read()) != -1) {
+                        System.out.print((char)content);
+                    }
+                    System.out.println("\n");
+                    reader.close();
+         
+                } catch (IOException ex) {
+                    System.out.println("noooooo");
+                    ex.printStackTrace();
+                }
             }
-
 
         });
     }
@@ -109,7 +139,7 @@ public class BadIOGUI {
          */
         frame.setVisible(true);
 
-        //resize the frame to the minimum size prior to displaying
+        // resize the frame to the minimum size prior to displaying
         frame.pack();
     }
 
@@ -119,6 +149,7 @@ public class BadIOGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-       new BadIOGUI().display();
+        System.out.println(PATH);
+        new BadIOGUI().display();
     }
 }
