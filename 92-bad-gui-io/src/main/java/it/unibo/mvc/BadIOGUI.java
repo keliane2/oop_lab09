@@ -149,7 +149,6 @@ public class BadIOGUI {
      * @param args ignored
      */
     public static void main(final String... args) {
-        System.out.println(PATH);
         new BadIOGUI().display();
     }
 }
