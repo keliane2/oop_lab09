@@ -8,7 +8,7 @@ import java.io.PrintStream;
  * Application controller. Performs the I/O.
  */
 public class Controller {
-    private static File currentFile=new File(System.getProperty("user.home")+File.separator+"output.txt");
+    private File currentFile=new File(System.getProperty("user.home")+File.separator+"output.txt");
 
     public boolean setCurrentFile(File f){
         if (f!=null) {
